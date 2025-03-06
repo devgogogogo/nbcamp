@@ -7,7 +7,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Calculator2 calculator2 = new Calculator2();
-        List<Double> results = new ArrayList<>();
+
 
         System.out.println("=========");
         System.out.println("==계산기==");
@@ -47,11 +47,11 @@ public class Main {
             } else {
                 System.out.println("잘못된 값을 입력하셨습니다.");
             }
-
+            System.out.print("결과: [");
             for (Double res : calculator2.getResultNums()) {
-                results.add(res);
-                System.out.println("결과: " + results);
+                System.out.print(res + ", ");
             }
+            System.out.println("]");
 
                 System.out.print("더 계산하시겠습니까?(Y/N), 첫번째 결과값을 지우시겠습니까?(R)");
                 String answer = sc.nextLine();
@@ -59,16 +59,18 @@ public class Main {
                 if (answer.equals("Y")) {
                 }else if (answer.equals("R")) {
                     calculator2.removeResult();
+                    System.out.print("결과: [");
                     for (Double res : calculator2.getResultNums()) {
-                        results.add(res);
-                        System.out.println("결과: " + results);
+                        System.out.print(res + ", ");
                     }
+                    System.out.println("]");
                 } else if (answer.equals("N")) {
                     System.out.println("프로그램을 종료합니다");
                     break;
                 } else {
                     System.out.println("잘못입력하셨습니다");
                 }
+                break;
         }
     }
 }
